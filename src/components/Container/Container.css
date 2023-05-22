@@ -1,0 +1,6 @@
+/* mobile first */
+
+.wrapper {
+  /* @apply bg-tan-bg; */
+  max-width: 375px;
+}
