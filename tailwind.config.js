@@ -32,7 +32,7 @@ export default {
     },
 
     boxShadow: {
-      'item-shadow': '0px 2px 4px -2px rgba(0, 0, 0, 0.25);'
+      'item-shadow': '0px 1px 4px rgba(0, 0, 0, 0.25)'
     },
 
     borderRadius: {

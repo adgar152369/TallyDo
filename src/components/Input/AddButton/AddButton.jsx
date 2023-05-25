@@ -1,13 +1,23 @@
 import React from "react";
 import "./AddButton.css";
 
-function AddButton() {
+function AddButton(props) {
+
+  function handleOnSubmit() {
+    if (props.inputValue === '') return;
+    else {
+      props.addItem(props.inputValue);
+      props.onSetInput('');
+    }
+  }
 
   return (
-    <div className="input-controls flex flex-nowrap gap-2.5">
-      <button className="bg-primary-blue hover:bg-primary-blue-700">Categorize</button>
-      <button className="bg-primary-red hover:bg-primary-red-700">Add Your Thing</button>
-    </div>
+      <button id="add-item-btn" 
+              className="bg-primary-red hover:bg-primary-red-700"
+              type="submit"
+              onClick={handleOnSubmit}> 
+              Add Your Thing 
+      </button>
   )
 }
 
