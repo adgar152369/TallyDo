@@ -1,8 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 body {
   @apply bg-white-bg;
-  @apply flex justify-center content-center flex-wrap;
+  @apply flex justify-center flex-wrap;
   min-height: 100vh;
   user-select: none;
+  font-family: 'Inter', sans-serif;
+}
+
+#root {
+  min-width: 100%;
 }
 
 img.cat-image {

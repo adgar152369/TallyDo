@@ -1,12 +1,18 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Container from './components/Container/Container';
 import UserInput from './components/Input/UserInput/UserInput';
 import CreateList from './components/Lists/CreateList/CreateList';
-import './App.css';
+import QuickList from './components/Lists/QuickList/QuickList';
 import cuteCat from './assets/cute-cat.png';
+import './App.css';
 
 
 function App() {
+  const [quickList, setQuickList] = useState(['Bread', 'Coffee', 'Honey', 'Some Diapers', 'ice', 'bar']);
+
+  function handleSetQuickList(newQuickItem) {
+    setQuickList([...prev, newQuickItem]);
+  }
 
   return (
     <Container>
@@ -14,7 +20,7 @@ function App() {
 
       <UserInput />
 
-      <CreateList />
+      <QuickList list={quickList} />
     </Container>
   )
 }

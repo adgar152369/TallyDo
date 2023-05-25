@@ -1,0 +1,6 @@
+
+
+ul.list-list .list-item {
+  @apply bg-tan text-brown;
+  cursor: pointer;
+}

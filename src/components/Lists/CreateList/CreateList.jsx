@@ -10,8 +10,10 @@ function CreateList() {
   return (
     <div className="list-creation">
       <form action="" onSubmit={onHandleSubmit}>
-        <input className="bg-input-grey my-2.5 p-2 rounded-md" type="text" placeholder="New List"/>
-        <button className="text-4xl font-bold align-sub">+</button>
+        <div className="list-submit relative my-2.5">
+          <input className="bg-input-grey rounded-md p-2" type="text" placeholder="New List" />
+          <button className="text-2xl h-full w-8 font-bold align-sub absolute right-0 bg-black text-light rounded-r-md">+</button>
+        </div>
       </form>
     </div>
   )

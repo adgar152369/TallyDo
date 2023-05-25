@@ -1,0 +1,5 @@
+.input-controls button {
+  @apply text-fs-16 rounded-br-5 p-2 flex-1 basis-0 h-12 text-white;
+  font-weight: 300;
+  transition: all .1s;
+}

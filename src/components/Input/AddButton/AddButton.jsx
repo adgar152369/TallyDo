@@ -4,7 +4,10 @@ import "./AddButton.css";
 function AddButton() {
 
   return (
-    <button className="bg-primary-red p-2 rounded-md text-light">Add Your Thing.</button>
+    <div className="input-controls flex flex-nowrap gap-2.5">
+      <button className="bg-primary-blue hover:bg-primary-blue-700">Categorize</button>
+      <button className="bg-primary-red hover:bg-primary-red-700">Add Your Thing</button>
+    </div>
   )
 }
 

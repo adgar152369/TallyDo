@@ -4,7 +4,7 @@ import './Container.css';
 function Container({ children }) {
 
   return (
-    <div className="wrapper bg-tan-bg p-5 border-2 border-black rounded-md">
+    <div className="wrapper p-5">
       {children}
     </div>
   )

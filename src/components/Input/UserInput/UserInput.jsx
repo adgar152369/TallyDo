@@ -10,8 +10,9 @@ function UserInput() {
 
   return (
     <div className="user-input">
-      <form className="flex flex-col" onSubmit={handleOnSubmit}>
-        <input className="bg-input-grey my-2.5 p-2 rounded-md" type="text" placeholder="Bread"/>
+      <form className="flex flex-col mb-8" onSubmit={handleOnSubmit}>
+        <input className="bg-input-grey my-2.5 p-2 h-12 text-fs-16 rounded-br-5" 
+          type="text" placeholder="Bread"/>
 
         <AddButton />
       </form>
