@@ -12,8 +12,10 @@ function QuickList({ list }) {
 
           {
             list ?
-              list.map(item => (
-                <li className="list-item flex-auto shadow-item-shadow max-h-10 rounded-br-5 py-2 px-2 text-center">
+              list.map((item, index) => (
+                <li className="list-item flex-auto shadow-item-shadow max-h-10 rounded-br-5 py-2 px-2 text-center"
+                  key={index}
+                >
                   {item}
                 </li>
               ))

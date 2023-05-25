@@ -1,7 +1,6 @@
-
-
 input {
-  text-align: center;
+  /* @apply bg-input-grey my-2.5 p-2 h-12 text-fs-16 rounded-br-5;
+  margin-block: .625rem; */
 }
 
 input:focus {
