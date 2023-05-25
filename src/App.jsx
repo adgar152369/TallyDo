@@ -8,17 +8,22 @@ import './App.css';
 
 
 function App() {
+
   const [quickList, setQuickList] = useState(['Bread', 'Coffee', 'Honey', 'Some Diapers']);
 
-  function handleSetQuickList(newQuickItem) {
+  function handleAddToQuickList(newQuickItem) {
     setQuickList([...quickList, newQuickItem]);
+  }
+
+  function deleteFromQuickList(index) {
+    setQuickList(prev => prev.filter((item, i) => i !== index));
   }
 
   return (
     <Container>
       <img className='cat-image' src={cuteCat} alt="" />
 
-      <UserInput onSetQuickList={handleSetQuickList} />
+      <UserInput onSetQuickList={handleAddToQuickList} />
 
       <QuickList list={quickList} />
     </Container>
