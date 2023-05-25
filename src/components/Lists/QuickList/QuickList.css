@@ -3,4 +3,10 @@
 ul.list-list .list-item {
   @apply bg-tan text-brown;
   cursor: pointer;
-}
+
+  @screen lg {
+    .disable-dbl-tap-del {
+      
+    }
+  }
+} 

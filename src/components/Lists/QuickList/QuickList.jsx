@@ -1,7 +1,12 @@
 import React from "react";
 import "./QuickList.css";
 
-function QuickList({ list }) {
+function QuickList(props) {
+
+  function deleteItem(index) {
+    // console.log('dbl tap time')
+    props.onDeleteItem(index);
+  }
 
   return (
     <div className="quick-list list">
@@ -11,10 +16,11 @@ function QuickList({ list }) {
         <ul className="quick-list-list list-list flex flex-wrap gap-2.5">
 
           {
-            list ?
-              list.map((item, index) => (
+            props.list ?
+              props.list.map((item, index) => (
                 <li className="list-item flex-auto shadow-item-shadow max-h-10 rounded-br-5 py-2 px-2 text-center"
-                  key={index}
+                    key={index}
+                    onDoubleClick={() => deleteItem(index)}
                 >
                   {item}
                 </li>

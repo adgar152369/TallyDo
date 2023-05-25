@@ -25,7 +25,7 @@ function App() {
 
       <UserInput onSetQuickList={handleAddToQuickList} />
 
-      <QuickList list={quickList} />
+      <QuickList list={quickList} onDeleteItem={deleteFromQuickList} />
     </Container>
   )
 }

@@ -39,7 +39,14 @@ export default {
       'br-5': '5px'
     },
 
-    extend: {},
+    extend: {
+      screens: {
+        'custom-sm': '480px',
+        'custom-md': '768px',
+        'custom-lg': '1024px',
+        'custom-xl': '1440px'
+      }
+    },
   },
   plugins: [],
 }
