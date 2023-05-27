@@ -1,10 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import "./QuickList.css";
 
 function QuickList(props) {
 
+  const [editing, setEditing] = useState(false);
+  
+  let viewMode = {};
+  let editMode = {};
+  let holdTimeout;
+  let holdDuration = 800; // duration in ms
+
   function deleteItem(index) {
     props.onDeleteItem(index);
+  }
+
+  function handleHoldEdit(index) {
+    console.log(index);
+    // clear any existing timeout
+    clearTimeout(holdTimeout);
+    // start new timeout
+    holdTimeout = setTimeout(() => {
+      setEditing(true);
+    }, holdDuration);
+  }
+
+  function handleHoldEnd() {
+    clearTimeout(holdTimeout);
+  }
+
+  if (editing) {
+    viewMode.display = 'none';
+  } else {
+    editMode.display = 'none';
   }
 
   return (
@@ -18,12 +45,26 @@ function QuickList(props) {
             props.list ?
               props.list.map((item, index) => (
 
-                <li className="list-item group px-1 py-2 custom-lg:p-2" key={index}>
+                <li 
+                  className="list-item group px-1 py-2 custom-lg:p-2" 
+                  key={index}>
 
-                  <span className="dbl-click-delete inline-block h-full w-full"
-                    onDoubleClick={() => deleteItem(index)}>
+                  <span 
+                    className="dbl-click-delete inline-block h-full w-full"
+                    style={viewMode}
+                    onDoubleClick={() => deleteItem(index)}
+                    onMouseDown={() => handleHoldEdit(index)}
+                    onTouchStart={handleHoldEdit} 
+                    onMouseUp={handleHoldEnd}
+                    onTouchEnd={handleHoldEnd}>
                     {item}
                   </span>
+                  <input
+                    className="edit-item-input" 
+                    type="text"
+                    key={index} 
+                    defaultValue={item}
+                    style={editMode}/>
 
                   {/* <span className="delete-btn hidden hover:bg-brown custom-lg:group-hover:flex">
                     <i className="text-exit-white fa-solid fa-xmark"></i>
