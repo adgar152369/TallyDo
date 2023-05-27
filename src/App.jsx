@@ -21,9 +21,10 @@ function App() {
 
   return (
     <Container>
-      <img className='cat-image' src={cuteCat} alt="" />
-
-      <UserInput onSetQuickList={handleAddToQuickList} />
+      <div className="input-container custom-lg:flex">
+        <img className='cat-image' src={cuteCat} />
+        <UserInput onSetQuickList={handleAddToQuickList} />
+      </div>
 
       <QuickList list={quickList} onDeleteItem={deleteFromQuickList} />
     </Container>

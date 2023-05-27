@@ -4,12 +4,11 @@ import "./QuickList.css";
 function QuickList(props) {
 
   function deleteItem(index) {
-    // console.log('dbl tap time')
     props.onDeleteItem(index);
   }
 
   return (
-    <div className="quick-list list">
+    <div className="quick-list list custom-lg:flex-auto">
       <h1 className="quick-list-header list-header font-semibold text-fs-24 text-header-black mb-3.5">Quick List</h1>
 
       <div className="quick-list-items list-items">
@@ -18,12 +17,20 @@ function QuickList(props) {
           {
             props.list ?
               props.list.map((item, index) => (
-                <li className="list-item flex-auto shadow-item-shadow max-h-10 rounded-br-5 py-2 px-2 text-center"
-                    key={index}
-                    onDoubleClick={() => deleteItem(index)}
-                >
-                  {item}
+
+                <li className="list-item group px-1 py-2 custom-lg:p-2" key={index}>
+
+                  <span className="dbl-click-delete inline-block h-full w-full"
+                    onDoubleClick={() => deleteItem(index)}>
+                    {item}
+                  </span>
+
+                  {/* <span className="delete-btn hidden hover:bg-brown custom-lg:group-hover:flex">
+                    <i className="text-exit-white fa-solid fa-xmark"></i>
+                  </span> */}
+
                 </li>
+
               ))
               : <p>Do you need something??</p>
           }

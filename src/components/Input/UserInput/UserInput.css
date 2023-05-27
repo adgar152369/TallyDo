@@ -6,3 +6,9 @@ input {
 input:focus {
   outline: none;
 }
+
+@media (min-width: 1024px) {
+  .user-input {
+    flex: 2;
+  }
+}

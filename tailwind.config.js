@@ -19,7 +19,9 @@ export default {
       'black': '#0f0f0f',
       'header-black': '#5B5959',
       'light': '#edebe4',
-      'white': '#fff'
+      'white': '#fff',
+      'exit': '#FACE7A',
+      'exit-white': '#fff',
     },
 
     fontSize: {
@@ -36,16 +38,18 @@ export default {
     },
 
     borderRadius: {
+      'circle': '50%',
       'br-5': '5px'
     },
 
+    screens: {
+      'custom-sm': '480px',
+      'custom-md': '768px',
+      'custom-lg': '1024px',
+      'custom-xl': '1440px'
+    },
+
     extend: {
-      screens: {
-        'custom-sm': '480px',
-        'custom-md': '768px',
-        'custom-lg': '1024px',
-        'custom-xl': '1440px'
-      }
     },
   },
   plugins: [],

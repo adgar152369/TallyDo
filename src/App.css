@@ -16,3 +16,14 @@ img.cat-image {
   width: 150px;
   margin: 0 auto;
 }
+
+@media (min-width: 1024px) {
+  .input-container {
+    @apply flex-auto max-w-md;
+    min-width: 450px;
+  }
+
+  .cat-image {
+    max-height: 150px;
+  }
+}

@@ -5,3 +5,11 @@
   max-width: 395px;
 
 }
+
+@media (min-width: 1024px) {
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 4rem;
+  }
+}
