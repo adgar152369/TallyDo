@@ -8,7 +8,7 @@ function QuickList(props) {
   let viewMode = {};
   let editMode = {};
   let holdTimeout;
-  let holdDuration = 800; // duration in ms
+  let holdDuration = 600; // duration in ms
 
   function deleteItem(index) {
     props.onDeleteItem(index);
@@ -29,7 +29,15 @@ function QuickList(props) {
   }
 
   if (editing) {
-    viewMode.display = 'none';
+    viewMode.display = 'block';
+    viewMode.fontSize = '12px';
+    viewMode.position = 'absolute';
+    viewMode.top = '8px';
+    viewMode.left = '10px';
+    viewMode.width = 'auto';
+    viewMode.zIndex = '20';
+    viewMode.color = 'lightgrey';
+
   } else {
     editMode.display = 'none';
   }

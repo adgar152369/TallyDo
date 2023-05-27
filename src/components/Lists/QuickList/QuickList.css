@@ -32,6 +32,7 @@ ul.list-list span.delete-btn {
   outline: none;
   position: relative;
   z-index: 10;
+  border-radius: 5px;
 }
 
 
