@@ -15,11 +15,9 @@ function QuickList(props) {
   }
 
   function handleHoldEdit(index) {
-    console.log(index);
-    // clear any existing timeout
-    clearTimeout(holdTimeout);
-    // start new timeout
-    holdTimeout = setTimeout(() => {
+    clearTimeout(holdTimeout); // clear any existing timeout
+    
+    holdTimeout = setTimeout(() => { // start new timeout
       setEditing(true);
     }, holdDuration);
   }
