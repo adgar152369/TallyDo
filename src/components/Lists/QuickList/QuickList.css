@@ -18,6 +18,8 @@ ul.list-list span.delete-btn {
   padding: 8px 10px 3px 10px;
   display: inline;
   position: relative;
+
+  
   box-shadow: 3px -2px 4px -3px rgba(0, 0, 0, 0.25);
   /* background-image: url('../../../assets/cool-border.svg');
   background-repeat: no-repeat;
