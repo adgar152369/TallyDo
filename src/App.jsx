@@ -9,7 +9,7 @@ import './App.css';
 
 function App() {
 
-  const [quickList, setQuickList] = useState([]);
+  const [quickList, setQuickList] = useState(['Mow the lawn', 'Buy groceries']);
 
   function handleAddToQuickList(newQuickItem) {
     setQuickList([...quickList, newQuickItem]);
