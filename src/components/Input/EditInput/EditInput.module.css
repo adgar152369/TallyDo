@@ -1,0 +1,8 @@
+.EditItemInput {
+  @apply w-full h-full text-right pt-4 pe-4
+         rounded-br-6;
+}
+
+.EditItemForm {
+  @apply h-full;
+}

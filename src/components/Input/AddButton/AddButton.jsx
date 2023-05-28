@@ -1,5 +1,5 @@
 import React from "react";
-import "./AddButton.css";
+import styles from "./AddButton.module.css";
 
 function AddButton(props) {
 
@@ -12,12 +12,12 @@ function AddButton(props) {
   }
 
   return (
-      <button id="add-item-btn" 
-              className="bg-primary-red hover:bg-primary-red-700"
-              type="submit"
-              onClick={handleOnSubmit}> 
-              Add Your Thing 
-      </button>
+    <button
+      className={styles.addButton}
+      type="submit"
+      onClick={handleOnSubmit}>
+      Add Your Thing
+    </button>
   )
 }
 

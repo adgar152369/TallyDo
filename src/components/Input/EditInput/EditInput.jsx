@@ -1,4 +1,5 @@
 import React, { useState} from "react";
+import styles from "./EditInput.module.css";
 
 function EditInput(props) {
 
@@ -9,15 +10,17 @@ function EditInput(props) {
   }
 
   return (
-    <form onSubmit={(e) => props.onHandleEditedItem(e, props.itemIndex, editedInput)}>
+    <form 
+      className={styles.EditItemForm}
+      onSubmit={(e) => props.onHandleEditedItem(e, props.itemIndex, editedInput)}>
+
       <input
-      className="edit-item-input" 
+      className={`${styles.EditItemInput} ${props.isEditing ? '' : props.editMode}`}
       type="text"
-      style={props.style}
       defaultValue={props.defaultValue}
-      
       onChange={handleEditedInput}
       />
+      
     </form>
   )
 }

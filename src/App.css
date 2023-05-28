@@ -13,17 +13,15 @@ body {
 }
 
 img.cat-image {
-  width: 150px;
-  margin: 0 auto;
+  @apply w-24 h-24 p-2 mb-5 m-auto
+         border-solid border-4 border-darker-purple
+         rounded-circle bg-purple shadow-ten-oclock
+         custom-lg:m-2;
 }
 
 @media (min-width: 1024px) {
-  .input-container {
-    @apply flex-auto max-w-md;
-    min-width: 450px;
-  }
-
-  .cat-image {
-    max-height: 150px;
+  img.cat-image {
+    width: 4rem;
+    height: 4rem
   }
 }

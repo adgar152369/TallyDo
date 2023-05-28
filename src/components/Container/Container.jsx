@@ -1,10 +1,10 @@
 import React from "react";
-import './Container.css';
+import styles from './Container.module.css';
 
 function Container({ children }) {
 
   return (
-    <div className="wrapper p-5 m-auto custom-lg:max-w-5xl">
+    <div className={styles.Wrapper}>
       {children}
     </div>
   )

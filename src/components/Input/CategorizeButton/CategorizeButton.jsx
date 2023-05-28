@@ -1,5 +1,5 @@
 import React from "react";
-import "./CategorizeButton.css";
+import styles from "./CategorizeButton.module.css";
 
 function CategorizeButton(props) {
 
@@ -10,12 +10,12 @@ function CategorizeButton(props) {
   }
 
   return (
-      <button id="categorize-btn"
-              className="bg-primary-blue hover:bg-primary-blue-700"
-              type="button"
-              onClick={handleOnSubmit}>
-              Categorize
-      </button>
+    <button
+      className={styles.categorizeButton}
+      type="button"
+      onClick={handleOnSubmit}>
+      Categorize
+    </button>
   )
 }
 

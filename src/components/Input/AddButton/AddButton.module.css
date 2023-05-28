@@ -1,0 +1,8 @@
+.addButton {
+  @apply text-fs-16 rounded-br-6 p-2 
+         flex-auto h-12 text-white
+         border-solid border-secondary-red border-4
+         hover:bg-primary-red-700 bg-primary-red !important;
+  font-weight: 300;
+  transition: all .1s;
+}

@@ -1,7 +1,7 @@
 import React from "react";
 import AddButton from "../AddButton/AddButton";
 import CategorizeButton from "../CategorizeButton/CategorizeButton";
-import './UserInput.css';
+import styles from './UserInput.module.css';
 
 function UserInput(props) {
 
@@ -11,15 +11,15 @@ function UserInput(props) {
 
   return (
     <div className="user-input">
-      <form className="flex flex-col mb-8" onSubmit={handleFormSubmit}>
+      <form className={styles.userAddForm} onSubmit={handleFormSubmit}>
 
-        <input className="bg-input-grey text-center my-2.5 p-2 h-12 text-fs-16 rounded-br-5"
+        <input className={styles.userAddInput}
           onChange={props.onHandleItemInputChange}
           value={props.itemInput}
           type="text"
           placeholder="Bread" />
 
-        <div className="input-controls flex flex-nowrap gap-2.5">
+        <div className={styles.userControls}>
           <CategorizeButton />
           <AddButton 
             addItem={props.onSetQuickList} 

@@ -1,0 +1,6 @@
+.categorizeButton {
+  @apply bg-primary-blue text-fs-16 rounded-br-6 p-2 
+  flex-auto h-12 text-white
+  border-solid border-secondary-blue
+  border-4 hover:bg-primary-blue-700 !important;
+}

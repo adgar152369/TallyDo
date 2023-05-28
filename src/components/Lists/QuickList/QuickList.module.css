@@ -1,0 +1,46 @@
+.quickList {
+  @apply custom-lg:flex-auto;
+}
+
+.quickListHeader {
+  @apply font-bold text-fs-24 
+       text-header-black border-dashed border-b-4 border-header-black
+         inline-block mb-6;
+}
+
+.quickListList {
+  @apply flex flex-wrap gap-2.5;
+}
+
+.listItem {
+  @apply bg-tan text-brown relative 
+         flex-auto border-4 border-dark-tan
+         rounded-br-6 text-center
+         overflow-hidden text-fs-18
+         hover:shadow-item-shadow
+         custom-lg:p-2;
+  min-height: 3.5rem;
+  cursor: pointer;
+  transition: all .2s;
+  /* box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25); */
+}
+
+.editingListItem {
+  @apply border-4 border-solid border-input-grey
+}
+
+.listItemSpan {
+  @apply flex justify-center items-center
+         w-full h-full rounded-br-6 px-1;
+  font-weight: 600;
+}
+
+.viewMode {
+  @apply block text-fs-12 absolute  
+         top-2 left-2.5 text-input-grey
+         w-auto z-20;
+}
+
+.editMode {
+  @apply hidden;
+}
