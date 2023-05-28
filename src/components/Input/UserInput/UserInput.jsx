@@ -1,15 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import AddButton from "../AddButton/AddButton";
 import CategorizeButton from "../CategorizeButton/CategorizeButton";
 import './UserInput.css';
 
-function UserInput({ onSetQuickList }) {
-
-  const [itemInput, setItemInput] = useState('');
-
-  function handleItemInputChange({ target }) {
-    setItemInput(target.value);
-  }
+function UserInput(props) {
 
   function handleFormSubmit(e) {
     e.preventDefault();
@@ -20,14 +14,17 @@ function UserInput({ onSetQuickList }) {
       <form className="flex flex-col mb-8" onSubmit={handleFormSubmit}>
 
         <input className="bg-input-grey text-center my-2.5 p-2 h-12 text-fs-16 rounded-br-5"
-          onChange={handleItemInputChange}
-          value={itemInput}
+          onChange={props.onHandleItemInputChange}
+          value={props.itemInput}
           type="text"
           placeholder="Bread" />
 
         <div className="input-controls flex flex-nowrap gap-2.5">
           <CategorizeButton />
-          <AddButton addItem={onSetQuickList} inputValue={itemInput} onSetInput={setItemInput} />
+          <AddButton 
+            addItem={props.onSetQuickList} 
+            inputValue={props.userItemInput} 
+            onSetInput={props.onSetItemInput} />
         </div>
 
       </form>

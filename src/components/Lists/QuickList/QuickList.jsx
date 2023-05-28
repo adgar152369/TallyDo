@@ -1,18 +1,29 @@
 import React, { useState, useEffect } from "react";
 import "./QuickList.css";
+import EditInput from "../../Input/EditInput/EditInput";
 
 function QuickList(props) {
 
   const [editing, setEditing] = useState(false);
-
-  useEffect(() => {
-    
-  }, [editing])
   
   let viewMode = {};
   let editMode = {};
   let holdTimeout;
   let holdDuration = 600; // duration in ms
+
+  if (editing) {
+    viewMode.display = 'block';
+    viewMode.fontSize = '12px';
+    viewMode.position = 'absolute';
+    viewMode.top = '8px';
+    viewMode.left = '10px';
+    viewMode.width = 'auto';
+    viewMode.zIndex = '20';
+    viewMode.color = 'lightgrey';
+
+  } else {
+    editMode.display = 'none';
+  }
 
   function deleteItem(index) {
     props.onDeleteItem(index);
@@ -30,19 +41,6 @@ function QuickList(props) {
     clearTimeout(holdTimeout);
   }
 
-  if (editing) {
-    viewMode.display = 'block';
-    viewMode.fontSize = '12px';
-    viewMode.position = 'absolute';
-    viewMode.top = '8px';
-    viewMode.left = '10px';
-    viewMode.width = 'auto';
-    viewMode.zIndex = '20';
-    viewMode.color = 'lightgrey';
-
-  } else {
-    editMode.display = 'none';
-  }
 
   return (
     <div className="quick-list list custom-lg:flex-auto">
@@ -60,7 +58,7 @@ function QuickList(props) {
                   key={index}>
 
                   <span 
-                    className="dbl-click-delete inline-block h-full w-full"
+                    className="dbl-click-delete h-full w-full"
                     style={viewMode}
                     onDoubleClick={() => deleteItem(index)}
                     onMouseDown={() => handleHoldEdit(index)}
@@ -69,12 +67,13 @@ function QuickList(props) {
                     onTouchEnd={handleHoldEnd}>
                     {item}
                   </span>
-                  <input
-                    className="edit-item-input" 
-                    type="text"
-                    key={index} 
+
+                  <EditInput 
+                    onHandleOnChange={props.onHandleEditedItem}
+                    key={index}
+                    style={editMode}
                     defaultValue={item}
-                    style={editMode}/>
+                  />
 
                   {/* <span className="delete-btn hidden hover:bg-brown custom-lg:group-hover:flex">
                     <i className="text-exit-white fa-solid fa-xmark"></i>
