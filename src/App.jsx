@@ -12,6 +12,7 @@ function App() {
   const [quickList, setQuickList] = useState(['Mow the lawn', 'Buy groceries']);
   const [itemInput, setItemInput] = useState('');
   const [editedItemInput, setEditedItemInput] = useState('');
+  const [editedItemIndex, setEditedItemIndex] = useState(-1);
 
   function handleAddToQuickList(newQuickItem) {
     setQuickList([...quickList, newQuickItem]);
@@ -25,8 +26,15 @@ function App() {
     setItemInput(target.value);
   }
 
-  function handleEditedItem(e) {
-    setEditedItemInput(e.target.value);
+  function handleEditedItem(e, index, editedItem) {
+    e.preventDefault();
+    setEditedItemInput(editedItem);
+
+    for (let i = 0; i < quickList.length; i++) {
+      if (i === index) {
+        setEditedItemIndex(i);
+      }
+    }
   }
 
   return (
@@ -44,7 +52,8 @@ function App() {
         onDeleteItem={deleteFromQuickList} 
         onHandleItemInputChange={handleItemInputChange}
         onHandleEditedItem={handleEditedItem}
-        userEditedItem={editedItemInput}/>
+        userEditedItem={editedItemInput}
+        editedItemIndex={editedItemIndex}/>
     </Container>
   )
 }

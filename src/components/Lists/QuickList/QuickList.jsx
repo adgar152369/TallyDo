@@ -29,7 +29,7 @@ function QuickList(props) {
     props.onDeleteItem(index);
   }
 
-  function handleHoldEdit(index) {
+  function handleHoldEdit() {
     clearTimeout(holdTimeout); // clear any existing timeout
     
     holdTimeout = setTimeout(() => { // start new timeout
@@ -61,16 +61,18 @@ function QuickList(props) {
                     className="dbl-click-delete h-full w-full"
                     style={viewMode}
                     onDoubleClick={() => deleteItem(index)}
-                    onMouseDown={() => handleHoldEdit(index)}
+                    onMouseDown={handleHoldEdit}
                     onTouchStart={handleHoldEdit} 
                     onMouseUp={handleHoldEnd}
                     onTouchEnd={handleHoldEnd}>
-                    {item}
+                    
+                    {props.editedItemIndex === index ? props.userEditedItem : item}
                   </span>
 
                   <EditInput 
-                    onHandleOnChange={props.onHandleEditedItem}
+                    onHandleEditedItem={props.onHandleEditedItem}
                     key={index}
+                    itemIndex={index}
                     style={editMode}
                     defaultValue={item}
                   />
