@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./QuickList.module.css";
-import EditInput from "../../Input/EditInput/EditInput";
+import EditInput from "../../Input/UserInput/EditInput/EditInput";
 
 function QuickList(props) {
 
