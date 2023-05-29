@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './Task.module.css'
 
-function Task ({ task, onDelete, onModify }) {
+function Task ({ task, onDelete, onModify, onWriteToDB }) {
 
   const [isEditing, setIsEditing] = useState(false);
   const [editedText, setEditedText] = useState(task);

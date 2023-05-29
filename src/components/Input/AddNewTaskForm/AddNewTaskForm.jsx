@@ -1,20 +1,21 @@
 import React from "react";
+import { v4 as uuidv4 } from 'uuid';
 import AddButton from "../AddButton/AddButton";
 import CategorizeButton from "../CategorizeButton/CategorizeButton";
 import styles from './AddNewTaskForm.module.css';
 
-function AddNewTaskForm({ newTask, onSetNewTask, onSetTasks, tasks }) {
+function AddNewTaskForm({ newTask, onSetNewTask, onWriteToDB, onAddTask }) {
 
-  function handleAddTask(e) {
+  function handleSubmit(e) {
     e.preventDefault();
     if (newTask.trim() !== '') {
-      onSetTasks([...tasks, newTask]);
-      onSetNewTask('');
+      const task = { taskName: newTask };
+      onAddTask(task);
     }
   }
 
   return (
-    <form onSubmit={handleAddTask} className={styles.addTaskForm}>
+    <form onSubmit={handleSubmit} className={styles.addTaskForm}>
       <input 
         type="text" 
         value={newTask} 
