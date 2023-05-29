@@ -39,14 +39,16 @@ function Task ({ task, onDelete, onModify }) {
           type="text" 
           value={editedText} 
           onChange={handleChange} 
-          // className={isEditing && styles.editingTask} 
           autoFocus />
       </form>
     );
   }
 
   return (
-    <div onDoubleClick={handleDoubleClick} onMouseDown={handleMouseDown} onTouchStart={handleMouseDown}>
+    <div 
+      onDoubleClick={handleDoubleClick} 
+      onMouseDown={handleMouseDown} 
+      onTouchStart={handleMouseDown}>
       {task}
     </div>
   );
