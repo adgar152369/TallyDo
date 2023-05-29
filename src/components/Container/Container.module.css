@@ -1,13 +1,2 @@
 /* mobile first */
 
-.Wrapper {
-  @apply p-5 m-auto custom-lg:max-w-5xl;
-  max-width: 395px;
-
-}
-
-@media (min-width: 1024px) {
-  .Wrapper {
-    @apply flex justify-between gap-14 max-w-5xl;
-  }
-}

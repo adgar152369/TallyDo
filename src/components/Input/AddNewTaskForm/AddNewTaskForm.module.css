@@ -1,15 +1,15 @@
-.userAddForm {
+.addTaskForm {
   @apply flex flex-col mb-8;
 }
 
-.userAddInput {
+.addTaskInput {
   @apply bg-input-grey text-center 
            my-2.5 p-2 h-12 text-fs-20 
            border-2 border-solid border-secondary-input-grey 
            rounded-br-6 focus:outline-none;
 }
 
-.userControls {
+.addNewTaskControls {
   @apply flex flex-nowrap gap-2.5;
 }
 

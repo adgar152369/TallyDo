@@ -2,8 +2,8 @@
 
 body {
   @apply bg-white-bg;
-  @apply flex justify-center flex-wrap;
-  min-height: 100vh;
+  /* @apply flex justify-center flex-wrap;
+  min-height: 100vh; */
   user-select: none;
   font-family: 'Inter', sans-serif;
 }
@@ -17,6 +17,10 @@ img.cat-image {
          border-solid border-4 border-darker-purple
          rounded-circle bg-purple shadow-ten-oclock
          custom-lg:m-2;
+}
+
+.Wrapper {
+  @apply p-5 m-auto w-full custom-sm:max-w-md;
 }
 
 @media (min-width: 1024px) {

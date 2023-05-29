@@ -1,21 +1,10 @@
 import React from "react";
 import styles from "./AddButton.module.css";
 
-function AddButton(props) {
-
-  function handleOnSubmit() {
-    if (props.inputValue === '') return;
-    else {
-      props.addItem(props.inputValue);
-      props.onSetInput('');
-    }
-  }
+function AddButton() {
 
   return (
-    <button
-      className={styles.addButton}
-      type="submit"
-      onClick={handleOnSubmit}>
+    <button className={styles.addButton} type="submit">
       Add Your Thing
     </button>
   )

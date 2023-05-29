@@ -1,0 +1,10 @@
+.editingTask {
+  /* @apply w-6/12 */
+  @apply absolute top-0 left-0 translate-x-1/4 p-2 rounded-br-6;
+  position: absolute;
+  top: 0px;
+  left: 0;
+  transform: translate(27%, 14%);
+  padding: 5px;
+  border-radius: 5px;
+}

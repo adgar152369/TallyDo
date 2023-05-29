@@ -1,76 +1,48 @@
-import React, { useState } from "react";
-import styles from "./QuickList.module.css";
-import EditInput from "../../Input/UserInput/EditInput/EditInput";
+import React, { useState } from 'react';
+import Task from '../../Task/Task';
+import AddNewTaskForm from '../../Input/AddNewTaskForm/AddNewTaskForm';
+import styles from './QuickList.module.css';
 
-function QuickList(props) {
+function QuickList() {
 
-  // const [editing, setEditing] = useState(false);
+  const [tasks, setTasks] = useState([]);
+  const [newTask, setNewTask] = useState('');
 
-  let holdTimeout;
-  let holdDuration = 600; // duration in ms
+  const handleDeleteTask = (index) => {
+    setTasks(tasks.filter((_, i) => i !== index));
+  };
 
-  function deleteItem(index) {
-    props.onDeleteItem(index);
-  }
-
-  function handleHoldEdit(e) {
-    if (e.button === 0) {
-      clearTimeout(holdTimeout); // clear any existing timeout
-
-      holdTimeout = setTimeout(() => { // start new timeout
-        props.onSetIsEditing(true);
-      }, holdDuration);
-    }
-  }
-
-  function handleHoldEnd() {
-    clearTimeout(holdTimeout);
-  }
-
+  const handleModifyTask = (index, modifiedTask) => {
+    setTasks(tasks.map((task, i) => (i === index ? modifiedTask : task)));
+  };
 
   return (
-    <div className={styles.quickList}>
-      <h1 className={styles.quickListHeader}>Quick List</h1>
+    <>
+      <AddNewTaskForm
+        newTask={newTask}
+        onSetNewTask={setNewTask}
+        onSetTasks={setTasks}
+        tasks={tasks}
+      />
 
-      <div className="quick-list-items list-items">
-        <ul className={styles.quickListList}>
+      <h1 className={styles.quickListHeader}>QuickList</h1>
 
-          {
-            props.list ?
-              props.list.map((item, index) => (
+      <ul className={styles.quickListList}>
 
-                <li
-                  className={`${styles.listItem} ${props.isEditing && styles.editingListItem}`}
-                  key={index}
-                  onDoubleClick={() => deleteItem(index)}
-                  onMouseDown={handleHoldEdit}
-                  onTouchStart={handleHoldEdit}
-                  onMouseUp={handleHoldEnd}
-                  onTouchEnd={handleHoldEnd}>
+        {tasks.map((task, index) => (
+          <li className={styles.listItem} key={index}>
+            <Task
+              key={index}
+              task={task}
+              onDelete={() => handleDeleteTask(index)}
+              onModify={(modifiedTask) => handleModifyTask(index, modifiedTask)}
+            />
+          </li>
+        ))}
 
-                  <span className={`${styles.listItemSpan} ${props.isEditing && styles.viewMode}`}>
-                    {props.editedItemIndex === index ? props.userEditedItem : item}
-                  </span>
-
-                  <EditInput
-                    onHandleEditedItem={props.onHandleEditedItem}
-                    key={index}
-                    itemIndex={index}
-                    editMode={styles.editMode}
-                    isEditing={props.isEditing}
-                    defaultValue={item}
-                  />
-
-                </li>
-
-              ))
-              : <p>Do you need something??</p>
-          }
-
-        </ul>
-      </div>
-    </div>
-  )
-}
+      </ul>
+    </>
+  );
+};
 
 export default QuickList;

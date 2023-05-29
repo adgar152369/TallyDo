@@ -5,4 +5,5 @@
          hover:bg-primary-red-700 bg-primary-red !important;
   font-weight: 300;
   transition: all .1s;
+  white-space: nowrap;
 }
